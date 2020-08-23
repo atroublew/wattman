@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='./vue.js'></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id='app'>
+        <!-- 头部菜单 -->
+        <div id='nav'>
+            <ul class='enum'>
+                <a href=''><li class='home-page'>WATTAN</li></a>
+                <a href=''><li :class="{'enum-li':classA,'has-drop':drop1}" 
+                @mouseover='overMainPage' @mouseleave='leaveMainPage'>首页</li></a>
+                <a href=''><li :class="{'enum-li':classA,'has-drop':drop2}"
+                @mouseover='overSolution' @mouseleave='leaveSolution'>解决方案</li></a>
+                <a href=''><li :class="{'enum-li':classA,'has-drop':drop3}"
+                @mouseover='overAboutUs' @mouseleave='leaveAboutUs'>关于我们</li></a>
+                <a href=''><li :class="{'enum-li':classA,'has-drop':drop4}"
+                @mouseover='overJoinUs' @mouseleave='leaveJoinUs'>加入我们</li></a>
+                <a href=''><li :class="{'enum-li':classA,'has-drop':drop5}"
+                @mouseover='overConnect' @mouseleave='leaveConnect'>联系</li></a>
+            </ul>
+            <div class='solution-msg' v-show='showSolMsg' @mouseover='overSolution' @mouseleave='leaveSolution'>
+                <div class='fdiv'>
+                    <h3>工业视觉</h3>
+                    <p>方坯视频计数与编码识别系统</p>
+                    <p>在线钢卷编码识别系统</p>
+                    <p>表面缺陷检测系统</p>
+                    <p>板坯号识别系统</p>
+                </div>
+                <div>
+                    <h3>三维重建</h3>
+                    <p>铁包钢包内衬侵蚀分析系统</p>
+                    <p>仓库物料计数系统</p>
+                </div>
+                <div>
+                    <h3>自主定位</h3>
+                    <p>园区车辆定位系统</p>
+                    <p>室内移动设备定位系统</p>
+                </div>
+                <div class='clear'></div>
+                <div class='fdiv'>
+                    <h3>工业机器人</h3>
+                    <p>碳块清理机器人</p>
+                    <p>扒渣机器人</p>
+                </div>
+                <div>
+                    <h3>三维地图</h3>
+                    <p>工业园区内部三维地图制作系统</p>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播图 -->
+        <div id='slide'>
+            <transition-group name='image' tag='ul'>
+                <li v-for="(item,index) in list" :key='index' v-show="index===mark" class='slide-li'>
+                    <img :src="item" class='slide-img'>
+                </li>
+            </transition-group>
+            <!-- <img src='./src/img/ladle1.jpg'> -->
+            <img src='./src/img/left.png' class='icon icon-left' @click='icLeft'>
+            <img src='./src/img/right.png' class='icon icon-right' @click='icRight'>
+            <div class='slide-text'>
+                <p class='slide-title'>WATTMAN</p>
+                <p class='slide-title'>工业革命推动者</p>
+                <p class='slide-msg'>机器学习等技术正在不断地颠覆传统行业，</p>
+                <p class='slide-msg'>成为诸多行业的关键助推力</p>
+                <a class='slide-aboutus' href=''>关于我们</a>
+            </div>
+        </div>
+        <!-- products -->
+        <div id='products'>
+            <div class='products-title'>PRODUCTS</div>
+            <div class='products-main'>
+                <div class='products1'>
+                    <div class='pro1'>
+                        <img src='./src/img/product_autoArm_2020_02_10.png'>
+                        <p class='pro-p'>智能感知机械臂</p>
+                    </div>
+                    <div class='pro2'>
+                        <img src='./src/img/product_onlineSurfaceDefectDetectionSystem_2020_02_10.png'>
+                        <p class='pro-p'>表面缺陷检测系统</p>
+                    </div>
+                    <div class='pro3'>
+                        <img src='./src/img/product_industrialNumberIdentificationSystem_2020_02_10.png'>
+                        <p class='pro-p'>工业编码识别系统</p>
+                    </div>
+                </div>
+                <div class='products2'>
+                    <div class='pro2'>
+                        <img src='./src/img/product_materialMeasurementSystem_2020_02_10.png'>
+                        <p class='pro-p'>物料计量系统</p>
+                    </div>
+                    <div class='pro2'>
+                        <img src='./src/img/product_factoryVehicleLocation_2020_02_10.png'>
+                        <p class='pro-p'>园区车辆定位系统</p>
+                    </div>
+                    <div class='pro3'>
+                        <img src='./src/img/product_indoorMobileDeviceLocationSystem_2020_02_10.png'>
+                        <p class='pro-p'>移动设备定位系统</p>
+                    </div>
+                    <div class='pro3'>
+                        <img src='./src/img/product_ladleLifeCycleSystem_2020_02_10.png'>
+                        <p class='pro-p'>铁包生命周期系统</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 工业视觉 -->
+        <div id='industrial-vision'>
+            <img src='./src/img/a-a_industrial-vision_f-l.jpg' :class="{'ballon':bal,'bal-leave':ballea}"
+            @mouseover='overbal' @mouseleave='leavebal'>
+            <div class='ind-vision-text' @mouseover='overbal' @mouseleave='leavebal'>
+                <h1>工业视觉</h1>
+                <p>融合机器视觉与三维感知技术，与现场实际工况深度结合，</p>
+                <p>为企业客户提供高效精准的定制化工业视觉解决方案</p>
+                <a class='slide-aboutus iv-a' href=''>了解更多</a>
+            </div>
+        </div>
+        <!-- 三维重建 -->
+        <div id='reconstruction'>
+            <img src='./src/img/a-a_3d-modeling_f-r.png' :class="{'rec-bal-in':recBal,'rec-bal-leave':recBallea}"
+            @mouseover='recoverbal' @mouseleave='recleavebal'>
+            <div class='rec-text' @mouseover='recoverbal' @mouseleave='recleavebal'>
+                <h1>三维重建</h1>
+                <p>通过3D传感器获取真实三维信息,结合相机的二维投影和纹理</p>
+                <p>细节,精确细腻地恢复出物体的三维结构,支持大场景实时三维</p>
+                <p>重建和小场景精密三维重建</p>
+                <a class='slide-aboutus iv-a' href=''>了解更多</a>
+            </div>
+        </div>
+        <!-- 工业机器人 -->
+        <div id='indiustrial-robot'>
+            <img src='./src/img/technicalIntroduction4.jpg.png' :class="{'rob-bal-in':robBal,'rob-bal-leave':robBallea}"
+            @mouseover='roboverbal' @mouseleave='robleavebal'>
+            <div class='rob-text' @mouseover='roboverbal' @mouseleave='robleavebal'>
+                <h1>工业机器人</h1>
+                <p>利用机器视觉与实时稠密三维重建技术，自主规划机械臂运</p>
+                <p>动轨迹，并针对现场工况，设计特定末端机械结构与电气方</p>
+                <p>案，推动企业客户工业生产无人化、智能化进程</p>
+                <a class='slide-aboutus iv-a' href=''>了解更多</a>
+            </div>
+        </div>
+        <!-- 自主定位 -->
+        <div id='tec'>
+            <img src='./src/img/technicalIntroduction1_.png' :class="{'tec-bal-in':tecBal,'tec-bal-leave':tecBallea}"
+            @mouseover='tecoverbal' @mouseleave='tecleavebal'>
+            <div class='tec-text' @mouseover='tecoverbal' @mouseleave='tecoverbal'>
+                <h1>自主定位</h1>
+                <p>基于多源传感器融合定位技术，支持室内外场景的高精度定</p>
+                <p>位，广泛应用于仓库天车、叉车等移动设备定位，园区车辆</p>
+                <p>定位等场景</p>
+                <a class='slide-aboutus iv-a' href=''>了解更多</a>
+            </div>
+        </div>
+        <!-- 底部信息 -->
+        <div id='footerMsg'>
+            <div class='footermsg-main'>
+                <div class='fm-main1 fm-main'>
+                    <h2>产品</h2>
+                    <p>方坯视频计数与编码识别系统</p>
+                    <p>在线钢卷编码识别系统</p>
+                    <p>在线表面缺陷检测系统</p>
+                    <p>铁包钢包内衬侵蚀分析系统</p>
+                    <p>物料计量系统</p>
+                    <p>园区车辆定位系统</p>
+                    <p>室内移动设备定位系统</p>
+                    <p>碳块清理机器人</p>
+                    <p>扒渣机器人</p>
+                </div>
+                <div class='fm-main2 fm-main'>
+                    <h2>应用</h2>
+                    <p>工业视觉</p>
+                    <p>三维重建</p>
+                    <p>自主定位</p>
+                    <p>工业机器人</p>
+                    <p>三维地图</p>
+                </div>
+                <div class='fm-main3 fm-main'><h2>关于我们</h2><p>公司介绍</p></div>
+                <div class='fm-main4 fm-main'>
+                    <h2>联系我们</h2>
+                    <p>电 话：400-666-3011</p>
+                    <p class='phone'>010-63971911</p>
+                    <p>传 真：010-63971913</p>
+                    <p>邮 箱：marketing@wattman.cn</p>
+                    <p>地 址：北京市海淀区复兴路乙12号中国铝业大厦</p>
+                </div>
+                <div class='fm-main5 fm-main'>
+                    <h2>关注我们</h2>
+                    <img src='./src/img/follow_us.jpg' class='img'>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div id='footer'>
+            <div class='footer'>
+                <h2>法律</h2>
+                <h2 class='h2'>隐私</h2>
+                <h2 class='h2'>联系我们</h2>
+            </div>
+            <div class='right'><p>京ICP备19043472号 ©2020 北京瓦特曼科技有限公司版权所有<p></p></div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    classA: true,
+                    drop1: false,
+                    drop2: false,
+                    drop3: false,
+                    drop4: false,
+                    drop5: false,
+                    bal: false,
+                    ballea: false,
+                    recBal: false,
+                    recBallea: false,
+                    robBal: false,
+                    robBallea: false,
+                    tecBal: false,
+                    tecBallea: false,
+                    showSolMsg: false,
+                    mark: 0,
+                    list: ['./src/img/ladle1.jpg','./src/img/ladle2.jpg']
+                }
+            },
+            methods: {
+                overMainPage() {
+                    this.drop1 = true;
+                },
+                leaveMainPage() {
+                    this.drop1 = false;
+                },
+                overSolution() {
+                    this.drop2 = true;
+                    this.showSolMsg = true;
+                },
+                leaveSolution() {
+                    this.drop2 = false;
+                    this.showSolMsg = false;
+                },
+                overAboutUs() {
+                    this.drop3 = true;
+                },
+                leaveAboutUs() {
+                    this.drop3 = false;
+                },
+                overJoinUs() {
+                    this.drop4 = true;
+                },
+                leaveJoinUs() {
+                    this.drop4 = false;
+                },
+                overConnect() {
+                    this.drop5 = true;
+                },
+                leaveConnect() {
+                    this.drop5 = false;
+                },
+                overbal() {
+                    this.bal = true;
+                    this.ballea = false;
+                },
+                leavebal() {
+                    this.bal = false;
+                    this.ballea = true;
+                },
+                recoverbal() {
+                    this.recBal = true;
+                    this.recBallea = false;
+                },
+                recleavebal() {
+                    this.recBal = false;
+                    this.recBallea = true;
+                },
+                roboverbal() {
+                    this.robBal = true;
+                    this.robBallea = false;
+                },
+                robleavebal() {
+                    this.robBal = false;
+                    this.robBallea = true;
+                },
+                tecoverbal() {
+                    this.tecBal = true;
+                    this.tecBallea = false;
+                },
+                tecleavebal() {
+                    this.tecBal = false;
+                    this.tecBallea = true;
+                },
+                icLeft() {
+                    if(this.mark != 0) {
+                        this.mark--;
+                    }
+                },
+                icRight() {
+                    if(this.mark !=  1){
+                        this.mark++;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
