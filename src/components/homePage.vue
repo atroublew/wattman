@@ -129,6 +129,20 @@
       </div>
     </div>
   </div>
+  <!-- 工业视觉 -->
+  <div id='industrial-vision'>
+    <img src='../assets/img/a-a_industrial-vision_f-l.jpg' :class="{'boost':ivclass,'reduce':isreduce}"
+    @mouseover="overiv" @mouseleave="leaveiv">
+    <el-row>
+    <el-col :span="20" :offset="4"><div class="grid-content bg-purple text"
+    @mouseover="overiv" @mouseleave="leaveiv">
+      <h1>工业视觉</h1>
+      <p>融合机器视觉与三维感知技术，与现场实际工况深度结合，</p>
+      <p>为企业客户提供高效精准的定制化工业视觉解决方案</p>
+      <button>了解更多</button>
+    </div></el-col>
+    </el-row>
+  </div>
 </div>
 </template>
 
@@ -144,6 +158,8 @@ export default {
       drop4: false,
       drop5: false,
       showSolMsg: false,
+      ivclass: false,
+      isreduce: false,
       imgs: ['http://qiniu.wattman.cn/ladle1.jpg','http://qiniu.wattman.cn/ladle2.jpg'],
       currentIndex: 0
     }
@@ -187,6 +203,14 @@ export default {
       } else{
         this.currentIndex = 0;
       }
+    },
+    overiv() {
+      this.isreduce = false;
+      this.ivclass = true;
+    },
+    leaveiv() {
+      this.isreduce = true;
+      this.ivclass = false;
     }
   }
 }
@@ -321,5 +345,42 @@ ul,li{
   color: #0B3771;
   text-align: center;
   font-size: 0.8rem;
+}
+#industrial-vision{
+  position: relative;
+  margin-top: 4.7rem;
+}
+@keyframes scaleDraw {  
+  0%{
+    transform: scale(1);  
+  }
+  100%{
+    transform: scale(1.1); 
+  }
+}
+#industrial-vision img{
+  position: absolute;
+  width: 100%;
+}
+#industrial-vision .boost{
+  -webkit-animation: scaleDraw 2s ease-in-out 1;
+  animation-fill-mode:forwards;
+}
+@keyframes scaleDraw1 {  
+  0%{
+    transform: scale(1.1);  
+  }
+  100%{
+    transform: scale(1.0); 
+  }
+}
+#industrial-vision .reduce{
+  -webkit-animation: scaleDraw1 2s ease-in-out 1;
+  animation-fill-mode:forwards;
+}
+#industrial-vision .text{
+  color: white;
+  position: absolute;
+  top: 10rem;
 }
 </style>
