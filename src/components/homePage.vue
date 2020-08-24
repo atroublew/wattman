@@ -1,66 +1,91 @@
 <template>
+  <div id='app'>
   <!-- nav -->
-  <div id='nav'>
-    <el-row>
-      <el-col :span="12"><div class="grid-content bg-purple-dark wattman">WATTMAN</div></el-col>
-      <el-col :span="2"><div class="grid-content bg-purple-dark nav"
-      :class="{'has-drop':drop1}" 
-      @mouseover='overMainPage' @mouseleave='leaveMainPage'>首页</div></el-col>
-      <el-col :span="2"><div class="grid-content bg-purple-dark nav"
-      :class="{'has-drop':drop2}"
-      @mouseover='overSolution' @mouseleave='leaveSolution'>解决方案</div></el-col>
-      <el-col :span="2"><div class="grid-content bg-purple-dark nav"
-      :class="{'has-drop':drop3}"
-      @mouseover='overAboutUs' @mouseleave='leaveAboutUs'>关于我们</div></el-col>
-      <el-col :span="2"><div class="grid-content bg-purple-dark nav"
-      :class="{'has-drop':drop4}"
-      @mouseover='overJoinUs' @mouseleave='leaveJoinUs'>加入我们</div></el-col>
-      <el-col :span="2"><div class="grid-content bg-purple-dark nav"
-      :class="{'has-drop':drop5}"
-      @mouseover='overConnect' @mouseleave='leaveConnect'>联系</div></el-col>
-    </el-row>
-    <div class='solution-msg' v-show='showSolMsg' @mouseover='overSolution' @mouseleave='leaveSolution'>
+    <div id='nav'>
       <el-row>
-      <el-col :span="6" :offset="4"><div>
-        <h3>工业视觉</h3>
-        <p>方坯视频计数与编码识别系统</p>
-        <p>在线钢卷编码识别系统</p>
-        <p>表面缺陷检测系统</p>
-        <p>板坯号识别系统</p>
-      </div>
-      </el-col>
-      <el-col :span="6">
-      <div>
-        <h3>三维重建</h3>
-        <p>铁包钢包内衬侵蚀分析系统</p>
-        <p>仓库物料计数系统</p>
-      </div>
-      </el-col>
-      <el-col :span="6">
-      <div>
-        <h3>自主定位</h3>
-        <p>园区车辆定位系统</p>
-        <p>室内移动设备定位系统</p>
-      </div>
-      </el-col>
+        <el-col :span="12"><div class="grid-content bg-purple-dark wattman">WATTMAN</div></el-col>
+        <el-col :span="2"><div class="grid-content bg-purple-dark nav"
+        :class="{'has-drop':drop1}" 
+        @mouseover='overMainPage' @mouseleave='leaveMainPage'>首页</div></el-col>
+        <el-col :span="2"><div class="grid-content bg-purple-dark nav"
+        :class="{'has-drop':drop2}"
+        @mouseover='overSolution' @mouseleave='leaveSolution'>解决方案</div></el-col>
+        <el-col :span="2"><div class="grid-content bg-purple-dark nav"
+        :class="{'has-drop':drop3}"
+        @mouseover='overAboutUs' @mouseleave='leaveAboutUs'>关于我们</div></el-col>
+        <el-col :span="2"><div class="grid-content bg-purple-dark nav"
+        :class="{'has-drop':drop4}"
+        @mouseover='overJoinUs' @mouseleave='leaveJoinUs'>加入我们</div></el-col>
+        <el-col :span="2"><div class="grid-content bg-purple-dark nav"
+        :class="{'has-drop':drop5}"
+        @mouseover='overConnect' @mouseleave='leaveConnect'>联系</div></el-col>
       </el-row>
-      <el-row>
-      <el-col :span="6" :offset="4">
-      <div class='fdiv'>
-        <h3>工业机器人</h3>
-        <p>碳块清理机器人</p>
-        <p>扒渣机器人</p>
+      <div class='solution-msg' v-show='showSolMsg' @mouseover='overSolution' @mouseleave='leaveSolution'>
+        <el-row>
+        <el-col :span="6" :offset="4"><div>
+          <h3>工业视觉</h3>
+          <p>方坯视频计数与编码识别系统</p>
+          <p>在线钢卷编码识别系统</p>
+          <p>表面缺陷检测系统</p>
+          <p>板坯号识别系统</p>
+        </div>
+        </el-col>
+        <el-col :span="6">
+        <div>
+          <h3>三维重建</h3>
+          <p>铁包钢包内衬侵蚀分析系统</p>
+          <p>仓库物料计数系统</p>
+        </div>
+        </el-col>
+        <el-col :span="6">
+        <div>
+          <h3>自主定位</h3>
+          <p>园区车辆定位系统</p>
+          <p>室内移动设备定位系统</p>
+        </div>
+        </el-col>
+        </el-row>
+        <el-row>
+        <el-col :span="6" :offset="4">
+        <div class='fdiv'>
+          <h3>工业机器人</h3>
+          <p>碳块清理机器人</p>
+          <p>扒渣机器人</p>
+        </div>
+        </el-col>
+        <el-col :span="6">
+        <div>
+          <h3>三维地图</h3>
+          <p>工业园区内部三维地图制作系统</p>
+        </div>
+        </el-col>
+        </el-row>
       </div>
-      </el-col>
-      <el-col :span="6">
-      <div>
-        <h3>三维地图</h3>
-        <p>工业园区内部三维地图制作系统</p>
-      </div>
-      </el-col>
-      </el-row>
     </div>
+  <!-- 轮播图 -->
+  <div id='slide'>
+    <ul>
+      <li v-for='(item,index) in imgs' :key='index'>
+        <img :src="imgs[currentIndex]" class='img'>
+      </li>
+    </ul>
+    <el-col :span="1" :offset="2">
+      <img src='../assets/img/left.png' class='arrow' @click='changeImg'>
+    </el-col>
+    <el-col :span="8" :offset="4">
+    <div class='text'>
+      <h1>WATTMAN</h1>
+      <h1>工业革命推动者</h1>
+      <p>机器学习等技术正在不断地颠覆传统行业，</p>
+      <p>成为诸多行业破茧成蝶的关键助推力。</p>
+      <button>关于我们</button>
+    </div>
+    </el-col>
+    <el-col :span="1" :offset="22">
+      <img src='../assets/img/right.png' class='arrow' @click='changeImg'>
+    </el-col>
   </div>
+</div>
 </template>
 
 <script>
@@ -75,6 +100,8 @@ export default {
       drop4: false,
       drop5: false,
       showSolMsg: false,
+      imgs: ['http://qiniu.wattman.cn/ladle1.jpg','http://qiniu.wattman.cn/ladle2.jpg'],
+      currentIndex: 0
     }
   },
   methods: {
@@ -109,6 +136,13 @@ export default {
     },
     leaveConnect() {
       this.drop5 = false;
+    },
+    changeImg() {
+      if(this.currentIndex === 0) {
+        this.currentIndex = 1;
+      } else{
+        this.currentIndex = 0;
+      }
     }
   }
 }
@@ -120,23 +154,43 @@ html,body{
   margin: 0;
   padding: 0;
 }
+#app{
+  display: flex;
+  flex-direction: column;
+}
+#slide,#products{
+  flex: 1;
+}
 #nav{
   width: 100%;
-  height: 115px;
+  height: 7.1rem;
   color: white;
   background: #0B3771;
+  z-index: 2;
   position: fixed;
+}
+button{
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: white;
+  font-size: 1.25rem;
+  background: #0B3771;
+  width: 10rem;
+  height: 5rem;
+  border-radius: 10px;
+  cursor: pointer;
 }
 .wattman{
   text-align: center;
-  font-size: 35px;
-  line-height: 115px;
+  font-size: 2.2rem;
+  line-height: 7.1rem;
   cursor: pointer;
 }
 .nav{
-  line-height: 115px;
+  line-height: 7.1rem;
   text-align: center;
-  font-size: 20px;
+  font-size: 1.25rem;
   cursor: pointer;
 }
 .has-drop{
@@ -144,11 +198,42 @@ html,body{
 }
 .solution-msg{
   color: black;
+  background: white;
 }
 .solution-msg{
   height: 450px;
 }
 .solution-msg h3,.solution-msg p{
+  cursor: pointer;
+}
+#slide .img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+#slide .text{
+  position: absolute;
+  color: white;
+  top: 30%;
+}
+#slide .text p{
+  font-size: 20px;
+}
+#slide .text p:first-of-type{
+  margin-top: 50px;
+}
+#slide .text button{
+  margin-top: 30px;
+}
+ul,li{
+  margin: 0;
+  padding: 0;
+}
+#slide .arrow{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
   cursor: pointer;
 }
 </style>
