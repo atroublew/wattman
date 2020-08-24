@@ -1,0 +1,344 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    background: #F1F1F1;
+}
+#nav{
+    width: 100%;
+    height: 110px;
+    background: #073771;
+    position: fixed;
+    z-index: 3;
+}
+.enum{
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+.home-page{
+    display: inline-block;
+    line-height: 110px;
+    font-size: 30px;
+    text-align: center;
+    width: 40%;
+}
+.enum-li{
+    display: inline-block;
+    line-height: 110px;
+    font-size: 20px;
+    width: 9%;
+    text-align: center;
+    height: 105px;
+}
+.enum a{
+    text-decoration:none;
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+.has-drop{
+    border-bottom: 2px solid white;
+}
+#slide,img{
+    width: 100%;
+    height: 750px;
+}
+.slide-text{
+    position: absolute;
+    bottom: 100px;
+    color: white;
+    left: 15%;
+}
+.slide-title{
+    font-size: 50px;
+    margin-top: -20px;
+}
+.slide-msg{
+    font-size: 25px;
+}
+#slide ul li,#slide ul{
+    /* display: none; */
+    margin: 0;
+    padding: 0;
+}
+.slide-aboutus{
+    width: 160px;
+    height: 60px;
+    border-radius: 15px;
+    color: white;
+    background: #0B3771;
+    text-decoration:none;
+    display: inline-block;
+    line-height: 60px;
+    text-align: center;
+    font-size: 20px;
+}
+#products{
+    margin-top: 75px;
+    height: 900px;
+    width: 100%;
+    background: #0B3771;
+    color:  white;
+}
+.products-title{
+    padding-top: 40px;
+    font-size: 50px;
+    width: 360px;
+    border-bottom: 5px solid white;
+    text-align: center;
+    margin: 0  auto;
+}
+.products1{
+    width: 40%;
+    height: 500px;
+    margin-top: 100px;
+    margin-left: 5%;
+    float: left;
+}
+.products2{
+    width: 40%;
+    margin-left: 10%;
+    margin-top: 100px;
+    height: 500px;
+    float: left;
+}
+.pro1{
+    width: 50%;
+    height: 100%;
+    background: white;
+    float: left;
+    cursor: pointer;
+}
+.pro2,.pro3{
+    width: 49%;
+    height: 249px;
+    background: white;
+    float: left;
+    margin-left: 2px;
+    cursor: pointer;
+}
+.pro3{
+    margin-top: 2px;
+}
+#products img{
+    width: 100%;
+    height: 80%;
+}
+.pro-p{
+    color: #0B3771;
+    text-align: center;
+}
+#industrial-vision{
+    width: 100%;
+    height: 700px;
+    margin-top: 75px;
+    position: relative;
+}
+#industrial-vision img{
+    width: 100%;
+    height: 100%;
+}
+@keyframes scaleDraw {  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+    0%{
+        transform: scale(1);  /*开始为原始大小*/
+    }
+    100%{
+        transform: scale(1.1); /*放大1.1倍*/
+    }
+}
+.ballon{
+    -webkit-animation: scaleDraw 1s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+@keyframes scaleDraw1 {  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+    0%{
+        transform: scale(1.1);  /*开始为原始大小*/
+    }
+    100%{
+        transform: scale(1.0); /*放大1.1倍*/
+    }
+}
+.bal-leave{
+    -webkit-animation: scaleDraw1 1s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+.ind-vision-text{
+    position: absolute;
+    z-index: 2;
+    left: 15%;
+    bottom: 30%;
+    color: white;
+}
+.iv-a{
+    margin-top: 20px;
+}
+#reconstruction{
+    width: 100%;
+    height: 700px;
+    margin-top: 75px;
+    position: relative;
+}
+.rec-bal-in{
+    -webkit-animation: scaleDraw 1s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+.rec-bal-leave{
+    -webkit-animation: scaleDraw1 1s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+.rec-text{
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 30%;
+    color: white;
+}
+#indiustrial-robot{
+    width: 100%;
+    height: 700px;
+    margin-top: 150px;
+    position: relative;
+}
+.rob-bal-in{
+    -webkit-animation: scaleDraw 1s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+.rob-bal-leave{
+    -webkit-animation: scaleDraw1 1s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+.rob-text{
+    position: absolute;
+    z-index: 2;
+    left: 15%;
+    bottom: 30%;
+    color: white;
+}
+#tec{
+    width: 100%;
+    height: 700px;
+    margin-top: 150px;
+    position: relative;
+}
+.tec-bal-in{
+    -webkit-animation: scaleDraw 1s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+.tec-bal-leave{
+    -webkit-animation: scaleDraw1 1s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+.tec-text{
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 30%;
+    color: white;
+}
+#footerMsg{
+    margin-top: 150px;
+    background: #E5EAF0;
+    width: 100%;
+    height: 500px;
+    border-top: 2px solid #CCD6E1;
+    position: relative;
+}
+.footermsg-main{
+    position: absolute;
+    width: 75%;
+    height: 100%;
+    left: 15%;
+    top: 60px;
+}
+.fm-main{
+    float: left;
+}
+li{
+    list-style-type:none;
+}
+.fm-main1{
+    width: 25%;
+}
+.fm-main2{
+    width: 10%;
+}
+.fm-main3{
+    width: 10%;
+}
+.fm-main4{
+    width: 30%;
+}
+.fm-main5{
+    width: 20%;
+}
+#footerMsg p{
+    cursor: pointer;
+}
+.fm-main4 .phone{
+    margin-left: 52px;
+}
+.fm-main5 .img{
+    width: 120px;
+    height: 120px
+}
+#footer{
+    width: 100%;
+    height: 110px;
+    background: #073771;
+    color: white;
+}
+#footer h2{
+    cursor: pointer;
+    display: inline-block;
+}
+#footer .h2{
+    margin-left: 30px;
+}
+.footer{
+    margin-left: 15%;
+    width: 35%;
+    float: left;
+}
+.right{
+    height: 110px;
+    line-height: 110px;
+    color: #A7A7AB;
+}
+.solution-msg{
+    height: 450px;
+    width: 100%;
+    background: white;
+}
+.solution-msg h3,.solution-msg p{
+    cursor: pointer;
+}
+.solution-msg{
+    color: black;
+}
+.solution-msg div{
+    float: left;
+}
+.solution-msg .fdiv{
+    margin-left: 20%;
+}
+.solution-msg div{
+    width: 20%;
+}
+.clear{
+    clear: both;
+}
+.icon{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 320px;
+    cursor: pointer;
+}
+.icon-left{
+    left: 10%;
+}
+.icon-right{
+    left: 80%;
+}
+

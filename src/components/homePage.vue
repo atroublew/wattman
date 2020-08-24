@@ -65,7 +65,7 @@
   <!-- 轮播图 -->
   <div id='slide'>
     <ul>
-      <li v-for='(item,index) in imgs' :key='index'>
+      <li v-for='(item,index) in imgs' :key='index' v-show="index===currentIndex">
         <img :src="imgs[currentIndex]" class='img'>
       </li>
     </ul>
@@ -84,6 +84,50 @@
     <el-col :span="1" :offset="22">
       <img src='../assets/img/right.png' class='arrow' @click='changeImg'>
     </el-col>
+  </div>
+  <!-- products -->
+  <div id='products'>
+    <h1>PRODUCTS</h1>
+    <div class='product-sol'>
+      <div class='product-wrap'>
+        <div class='product-wrap-wrap'>
+          <img src='http://qiniu.wattman.cn/product_autoArm_2020_02_10.png'>
+          <p class='product-name'>智能感知机械臂</p>
+        </div>
+        <div class='product-wrap-wrap'>
+          <div class='product-wrap-wrap-wrap'>
+            <img src='http://qiniu.wattman.cn/product_onlineSurfaceDefectDetectionSystem_2020_02_10.png'>
+            <p class='product-name'>表面缺陷检测系统</p>
+          </div>
+          <div class='product-wrap-wrap-wrap'>
+            <img src='http://qiniu.wattman.cn/product_industrialNumberIdentificationSystem_2020_02_10.png'>
+            <p class='product-name'>工业编码识别系统</p>
+          </div>
+        </div>
+      </div>
+      <div class='product-wrap'>
+        <div class='product-wrap-wrap'>
+          <div class='product-wrap-wrap-wrap'>
+            <img src='http://qiniu.wattman.cn/product_materialMeasurementSystem_2020_02_10.png'>
+            <p class='product-name'>物料计量系统</p>
+          </div>
+          <div class='product-wrap-wrap-wrap'>
+            <img src='http://qiniu.wattman.cn/product_indoorMobileDeviceLocationSystem_2020_02_10.png'>
+            <p class='product-name'>移动设备定位系统</p> 
+          </div>
+        </div>
+        <div class='product-wrap-wrap'>
+          <div class='product-wrap-wrap-wrap'>
+            <img src='http://qiniu.wattman.cn/product_factoryVehicleLocation_2020_02_10.png'>
+            <p class='product-name'>园区车辆定位系统</p>
+          </div>
+          <div class='product-wrap-wrap-wrap'>
+            <img src='http://qiniu.wattman.cn/product_ladleLifeCycleSystem_2020_02_10.png'>
+            <p class='product-name'>铁通生命周期系统</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </template>
@@ -154,13 +198,6 @@ html,body{
   margin: 0;
   padding: 0;
 }
-#app{
-  display: flex;
-  flex-direction: column;
-}
-#slide,#products{
-  flex: 1;
-}
 #nav{
   width: 100%;
   height: 7.1rem;
@@ -209,7 +246,7 @@ button{
 #slide .img{
   width: 100%;
   height: 100%;
-  position: absolute;
+  /* position: absolute; */
 }
 #slide .text{
   position: absolute;
@@ -235,5 +272,54 @@ ul,li{
   height: 40px;
   top: 50%;
   cursor: pointer;
+}
+#slide{
+  position: relative;
+}
+#products{
+  width: 100%;
+  height: 56.25rem;
+  margin-top: 4.68rem;
+  background:#0B3771;
+}
+#products h1{
+  color: white;
+  text-align: center;
+  padding-top: 5rem;
+}
+.product-wrap{
+  height: 40rem;
+  background: white;
+  float: left;
+  flex: 1;
+  margin: 5rem 5rem 0 5rem;
+  display: flex;
+}
+.product-sol{
+  display: flex;
+}
+.product-wrap-wrap{
+  flex: 1;
+  height: 40rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #0B3771;
+  cursor: pointer;
+}
+.product-wrap-wrap-wrap{
+  flex: 1;
+  border: 1px solid #0B3771;
+  height: 0;
+}
+#products img{
+  width: 100%;
+  height: 80%;
+}
+#products .product-name{
+  cursor: pointer;
+  color: #0B3771;
+  text-align: center;
+  font-size: 0.8rem;
 }
 </style>
