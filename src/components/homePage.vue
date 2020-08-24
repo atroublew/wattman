@@ -12,7 +12,7 @@
         @mouseover='overSolution' @mouseleave='leaveSolution'>解决方案</div></el-col>
         <el-col :span="2"><div class="grid-content bg-purple-dark nav"
         :class="{'has-drop':drop3}"
-        @mouseover='overAboutUs' @mouseleave='leaveAboutUs'>关于我们</div></el-col>
+        @mouseover='overAboutUs' @mouseleave='leaveAboutUs' @click='toAboutUs'>关于我们</div></el-col>
         <el-col :span="2"><div class="grid-content bg-purple-dark nav"
         :class="{'has-drop':drop4}"
         @mouseover='overJoinUs' @mouseleave='leaveJoinUs'>加入我们</div></el-col>
@@ -130,7 +130,7 @@
     </div>
   </div>
   <!-- 工业视觉 -->
-  <div id='industrial-vision'>
+  <div class='industrial-vision'>
     <img src='../assets/img/a-a_industrial-vision_f-l.jpg' :class="{'boost':ivclass,'reduce':isreduce}"
     @mouseover="overiv" @mouseleave="leaveiv">
     <el-row>
@@ -142,6 +142,97 @@
       <button>了解更多</button>
     </div></el-col>
     </el-row>
+  </div>
+  <!-- 3d -->
+  <div class='industrial-vision'>
+    <img src='../assets/img/a-a_3d-modeling_f-r.png' :class="{'boost':ivclass1,'reduce':isreduce1}"
+    @mouseover="overiv1" @mouseleave="leaveiv1">
+    <el-row>
+    <el-col :span="12" :offset="12"><div class="grid-content bg-purple text"
+    @mouseover="overiv1" @mouseleave="leaveiv1">
+      <h1>三维重建</h1>
+      <p>通过3D传感器获取真实三维信息,结合相机的二维投影和纹理</p>
+      <p>细节,精确细腻地恢复出物体的三维结构,支持大场景实时三维</p>
+      <p>重建和小场景精密三维重建</p>
+      <button>了解更多</button>
+    </div></el-col>
+    </el-row>
+  </div>
+  <!-- 工业机器人 -->
+  <div class='industrial-vision'>
+    <img src='../assets/img/technicalIntroduction4.jpg.png' :class="{'boost':ivclass,'reduce':isreduce}"
+    @mouseover="overiv" @mouseleave="leaveiv">
+    <el-row>
+    <el-col :span="20" :offset="4"><div class="grid-content bg-purple text"
+    @mouseover="overiv" @mouseleave="leaveiv">
+      <h1>工业机器人</h1>
+      <p>利用机器视觉与实时稠密三维重建技术，自主规划机械臂运</p>
+      <p>动轨迹，并针对现场工况，设计特定末端机械结构与电气方</p>
+      <p>案，推动企业客户工业生产无人化、智能化进程</p>
+      <button>了解更多</button>
+    </div></el-col>
+    </el-row>
+  </div>
+  <!-- 自主定位 -->
+   <div class='industrial-vision'>
+    <img src='../assets/img/technicalIntroduction1_.png' :class="{'boost':ivclass1,'reduce':isreduce1}"
+    @mouseover="overiv1" @mouseleave="leaveiv1">
+    <el-row>
+    <el-col :span="12" :offset="12"><div class="grid-content bg-purple text"
+    @mouseover="overiv1" @mouseleave="leaveiv1">
+      <h1>自主定位</h1>
+      <p>基于多源传感器融合定位技术，支持室内外场景的高精度定</p>
+      <p>位，广泛应用于仓库天车、叉车等移动设备定位，园区车辆</p>
+      <p>定位等场景</p>
+      <button>了解更多</button>
+    </div></el-col>
+    </el-row>
+  </div>
+  <!-- 底部信息 -->
+  <div class='footer-msg'>
+    <div class='poflex2'>
+      <h3>产品</h3>
+      <p>方坯视频计数与编码识别系统</p>
+      <p>在线钢卷编码识别系统</p>
+      <p>在线表面缺陷检测系统</p>
+      <p>铁包钢包内衬侵蚀分析系统</p>
+      <p>物料计量系统</p>
+      <p>园区车辆定位系统</p>
+      <p>室内移动设备定位系统</p>
+      <p>碳块清理机器人</p>
+      <p>扒渣机器人</p>
+    </div>
+    <div class='poflex'>
+      <h3>应用</h3>
+      <p>工业视觉</p>
+      <p>三维重建</p>
+      <p>自主定位</p>
+      <p>工业机器人</p>
+      <p>三维地图</p>
+    </div>
+    <div class='poflex'>
+      <h3>关于我们</h3>
+      <p>公司介绍</p>
+    </div>
+    <div class='poflex2'>
+      <h3>联系我们</h3>
+          <p>电 话：400-666-3011</p>
+          <p><span style="margin-left: 53px">010-63971911</span></p>
+          <p>传 真：010-63971913</p>
+          <p>邮 箱：marketing@wattman.cn</p>
+          <p>地 址：北京市海淀区复兴路乙12号中国铝业大厦</p>
+    </div>
+    <div class='poflex2'>
+      <h3>关注我们</h3>
+        <img src='../assets/img/follow_us.jpg'>
+    </div>
+  </div>
+  <!-- footer -->
+  <div class='footer'>
+    <h3>法律</h3>
+    <h3>隐私</h3>
+    <h3>联系我们</h3>
+    <p><span>京ICP备19043472号</span><span>©2020 北京瓦特曼科技有限公司版权所有</span></p>
   </div>
 </div>
 </template>
@@ -160,6 +251,8 @@ export default {
       showSolMsg: false,
       ivclass: false,
       isreduce: false,
+      ivclass1: false,
+      isreduce1: false,
       imgs: ['http://qiniu.wattman.cn/ladle1.jpg','http://qiniu.wattman.cn/ladle2.jpg'],
       currentIndex: 0
     }
@@ -211,6 +304,17 @@ export default {
     leaveiv() {
       this.isreduce = true;
       this.ivclass = false;
+    },
+    overiv1() {
+      this.isreduce1 = false;
+      this.ivclass1 = true;
+    },
+    leaveiv1() {
+      this.isreduce1 = true;
+      this.ivclass1 = false;
+    },
+    toAboutUs() {
+      this.$router.push('aboutUs')
     }
   }
 }
@@ -346,7 +450,7 @@ ul,li{
   text-align: center;
   font-size: 0.8rem;
 }
-#industrial-vision{
+.industrial-vision{
   position: relative;
   margin-top: 4.7rem;
 }
@@ -358,13 +462,13 @@ ul,li{
     transform: scale(1.1); 
   }
 }
-#industrial-vision img{
-  position: absolute;
+.industrial-vision img{
+  /* position: absolute; */
   width: 100%;
 }
-#industrial-vision .boost{
+.industrial-vision .boost{
   -webkit-animation: scaleDraw 2s ease-in-out 1;
-  animation-fill-mode:forwards;
+  animation-fill-mode: forwards;
 }
 @keyframes scaleDraw1 {  
   0%{
@@ -374,13 +478,64 @@ ul,li{
     transform: scale(1.0); 
   }
 }
-#industrial-vision .reduce{
+.industrial-vision .reduce{
   -webkit-animation: scaleDraw1 2s ease-in-out 1;
   animation-fill-mode:forwards;
 }
-#industrial-vision .text{
+.industrial-vision .text{
   color: white;
   position: absolute;
-  top: 10rem;
+  bottom: 15rem;
+}
+.footer-msg{
+  display: flex;
+  margin-top: 5rem;
+  background: #E5EAF0;
+  height: 30rem;
+  width: 100%;
+  color: black;
+  border-top: 2px solid #CCD6E1;
+}
+.footer-msg div:first-child{
+  margin-left: 15rem;
+}
+.footer-msg .poflex2{
+  flex: 2;
+  margin-top: 3rem;
+}
+.footer-msg .poflex{
+  flex: 1;
+  margin-top: 3rem;
+}
+.footer-msg p{
+  cursor: pointer;
+}
+.footer-msg img{
+  width: 120px;
+  height: 120px;
+}
+.footer{
+  width: 100%;
+  height: 115px;
+  background: #0B3771;
+  color: white;
+}
+.footer h3{
+  float: left;
+  margin-left: 2rem;
+  line-height: 115px;
+  cursor: pointer;
+}
+.footer h3:first-child{
+  margin-left: 16rem;
+}
+.footer p{
+  float: left;
+  line-height: 115px;
+  margin-left: 16rem;
+}
+.footer span{
+  margin-left: 2rem;
+  color: #709CAB;
 }
 </style>
